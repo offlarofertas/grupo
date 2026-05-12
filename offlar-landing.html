@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Off.Lar – Ofertas pro seu Lar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange:      #E8520A;
+    --orange-dark: #C24008;
+    --beige:       #F5EDE3;
+    --beige-light: #FDF8F3;
+    --brown:       #5C3A1E;
+    --brown-light: #8B5E3C;
+    --white:       #FFFFFF;
+    --green-wa:    #25D366;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--orange);
+    color: var(--white);
+    overflow-x: hidden;
+    padding-bottom: 72px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--orange-dark);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: -.5px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .logo .dot { color: rgba(255,255,255,.45); }
+  .logo-sub {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,.5);
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .badge-free {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.28);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 48px 24px 44px;
+    background: var(--orange);
+  }
+
+  .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,.14);
+    border-radius: 30px;
+    padding: 6px 14px;
+    margin-bottom: 28px;
+  }
+  .live-dot {
+    width: 7px; height: 7px;
+    background: var(--white);
+    border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .live-badge span {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,.88);
+  }
+
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+  .hero h1 .dark-word {
+    color: var(--white);
+    background: rgba(0,0,0,.22);
+    border-radius: 8px;
+    padding: 2px 10px 4px;
+    display: inline;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .hero p {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255,255,255,.78);
+    line-height: 1.65;
+    margin-bottom: 34px;
+  }
+
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--orange);
+    text-decoration: none;
+    padding: 17px 24px;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+    transition: opacity .15s;
+  }
+  .hero-cta:active { opacity: .88; }
+
+  /* ── STATS ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--orange-dark);
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+  .stat {
+    text-align: center;
+    padding: 20px 8px;
+    border-right: 1px solid rgba(255,255,255,.14);
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .stat .lbl {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,.5);
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    line-height: 1.3;
+  }
+
+  /* ── COMO FUNCIONA ── */
+  .card-section {
+    background: var(--beige-light);
+    padding: 40px 24px;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -.4px;
+    color: var(--brown);
+    margin-bottom: 24px;
+  }
+  .section-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .benefit-list { display: flex; flex-direction: column; gap: 10px; }
+  .benefit {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(92,58,30,.08);
+  }
+  .b-icon {
+    width: 42px; height: 42px;
+    background: var(--orange);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .b-icon svg { width: 20px; height: 20px; }
+  .b-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 2px;
+  }
+  .b-text span {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--brown-light);
+  }
+
+  /* ── CATEGORIES ── */
+  .cat-section {
+    padding: 0 24px 40px;
+    background: var(--beige-light);
+  }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .cat {
+    background: var(--white);
+    border: 1px solid rgba(92,58,30,.08);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .cat .cat-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--orange);
+    margin-bottom: 3px;
+  }
+  .cat .cat-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--brown);
+  }
+
+  /* ── BOTTOM CTA ── */
+  .bottom-cta {
+    padding: 44px 24px 40px;
+    background: var(--beige);
+    text-align: center;
+  }
+  .bottom-cta h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+  .bottom-cta h2 em {
+    font-style: normal;
+    color: var(--orange);
+  }
+  .bottom-cta p {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--brown-light);
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  .wa-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--green-wa);
+    color: var(--white);
+    text-decoration: none;
+    padding: 18px 24px;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 15px;
+    transition: opacity .15s;
+    margin-bottom: 18px;
+  }
+  .wa-btn:active { opacity: .88; }
+
+  .trust-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+  }
+  .trust-item {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brown-light);
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--beige);
+    padding: 16px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(92,58,30,.1);
+  }
+  .footer p { font-size: 11px; color: var(--brown-light); opacity: .6; }
+
+  /* ── FIXED BAR ── */
+  .fixed-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    padding: 10px 16px;
+    background: var(--beige-light);
+    border-top: 1px solid rgba(92,58,30,.1);
+    box-shadow: 0 -4px 20px rgba(92,58,30,.12);
+    z-index: 200;
+  }
+  .fixed-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    animation: glow 2.2s ease-in-out infinite;
+  }
+  @keyframes glow {
+    0%,100% { box-shadow: 0 4px 14px rgba(232,82,10,.35); }
+    50%      { box-shadow: 0 6px 28px rgba(232,82,10,.65); }
+  }
+  .fixed-bar a:active { opacity: .9; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div>
+    <div class="logo">Off<span class="dot">.</span>Lar</div>
+    <div class="logo-sub">Ofertas pro seu Lar</div>
+  </div>
+  <div class="badge-free">Grupo Gratuito</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="live-badge">
+    <div class="live-dot"></div>
+    <span>+2.500 membros economizando agora</span>
+  </div>
+
+  <h1>A gente acha.<br><span style="white-space:nowrap">Voce <span class="dark-word">economiza.</span></span></h1>
+
+
+  <p>Garimpamos o Mercado Livre todo dia e enviamos as melhores ofertas direto no seu WhatsApp. De graca.</p>
+
+  <a href="https://chat.whatsapp.com/I8OA6Nar07GKuP1B3Xq36y?mode=gi_t" class="hero-cta">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6.29 6.29 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="var(--orange)"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.975-1.301A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="var(--orange)" stroke-width="1.5"/>
+    </svg>
+    ENTRAR NO GRUPO GRATIS
+  </a>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="num">+2.5K</div>
+    <div class="lbl">Membros ativos</div>
+  </div>
+  <div class="stat">
+    <div class="num">Diario</div>
+    <div class="lbl">Novas ofertas</div>
+  </div>
+  <div class="stat">
+    <div class="num">100%</div>
+    <div class="lbl">Gratuito</div>
+  </div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<section class="card-section">
+  <div class="section-label">Como funciona</div>
+  <h2 class="section-title">So boas ofertas,<br><em>todo dia</em></h2>
+  <div class="benefit-list">
+
+    <div class="benefit">
+      <div class="b-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="b-text">
+        <strong>Garimpamos o Mercado Livre</strong>
+        <span>Nossa equipe pesquisa as melhores ofertas todos os dias</span>
+      </div>
+    </div>
+
+    <div class="benefit">
+      <div class="b-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <div class="b-text">
+        <strong>Filtramos com criterio</strong>
+        <span>So entra no grupo o que realmente vale a pena comprar</span>
+      </div>
+    </div>
+
+    <div class="benefit">
+      <div class="b-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+      </div>
+      <div class="b-text">
+        <strong>Voce recebe no WhatsApp</strong>
+        <span>Link direto para comprar no Mercado Livre com o melhor preco</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="cat-section">
+  <div class="section-label">Categorias</div>
+  <h2 class="section-title">O que voce<br>vai <em>encontrar</em></h2>
+  <div class="cat-grid">
+    <div class="cat"><div class="cat-label">Eletro</div><div class="cat-name">Eletrodomesticos</div></div>
+    <div class="cat"><div class="cat-label">Casa</div><div class="cat-name">Moveis</div></div>
+    <div class="cat"><div class="cat-label">Ambiente</div><div class="cat-name">Decoracao</div></div>
+    <div class="cat"><div class="cat-label">Higiene</div><div class="cat-name">Limpeza</div></div>
+    <div class="cat"><div class="cat-label">Cozinha</div><div class="cat-name">Utensilios</div></div>
+    <div class="cat"><div class="cat-label">Tech</div><div class="cat-name">Eletronicos</div></div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <h2>Entrou.<br><em>Economizou.</em></h2>
+  <p>Grupo gratuito no WhatsApp. Nao vendemos nada — so garimpamos as melhores ofertas pra voce.</p>
+
+  <a href="https://chat.whatsapp.com/I8OA6Nar07GKuP1B3Xq36y?mode=gi_t" class="wa-btn">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6.29 6.29 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.975-1.301A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="white" stroke-width="1.5"/>
+    </svg>
+    ENTRAR NO GRUPO GRATIS
+  </a>
+
+  <div class="trust-row">
+    <span class="trust-item">Sem spam</span>
+    <span class="trust-item">Sem enrolacao</span>
+    <span class="trust-item">So boas ofertas</span>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>2025 Off.Lar · Todos os direitos reservados</p>
+</footer>
+
+<!-- FIXED BAR -->
+<div class="fixed-bar">
+  <a href="https://chat.whatsapp.com/I8OA6Nar07GKuP1B3Xq36y?mode=gi_t">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6.29 6.29 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.975-1.301A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="white" stroke-width="1.5"/>
+    </svg>
+    ENTRAR NO GRUPO DE OFERTAS GRATIS
+  </a>
+</div>
+
+</body>
+</html>
